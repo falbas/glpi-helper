@@ -1,7 +1,7 @@
 <?php
 require("../helper/glpiHelper.php");
 session_start();
-if (!$_SESSION["login"]) header("location:../login.php");
+if (!$_SESSION["login"]["session_token"]) header("location:../login.php");
 ?>
 
 <!DOCTYPE html>

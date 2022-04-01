@@ -11,7 +11,7 @@ session_start(); ?>
 </head>
 
 <body>
-  <div class="flex justify-center min-h-screen items-center bg-gradient-to-r from-cyan-500 to-blue-500">
+  <div class="flex flex-col justify-center min-h-screen items-center bg-gradient-to-r from-cyan-500 to-blue-500 px-28">
     <form method="post" action="action/login_action.php">
       <div class="flex flex-col bg-white p-5 rounded">
         <h1 class="text-center text-4xl font-bold">Login</h1>
@@ -22,6 +22,9 @@ session_start(); ?>
         <input type="submit" class="mt-3 rounded bg-gray-400 hover:bg-gray-500" value="Login">
       </div>
     </form>
+    <?php if (isset($_SESSION["login"][1])) { ?>
+      <p class="text-center">Username atau password salah</p>
+    <?php } ?>
   </div>
 </body>
 

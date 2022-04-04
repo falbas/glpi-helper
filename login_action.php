@@ -1,5 +1,5 @@
 <?php
-require("../helper/glpiHelper.php");
+require("helper/glpiHelper.php");
 session_start();
 
 use glpiHelper\glpiHelper;
@@ -9,7 +9,7 @@ $_SESSION["client"] = $client;
 $_SESSION["login"] = $client->initSession($_POST["username"], $_POST["password"]);
 
 if (isset($_SESSION["login"]["session_token"])) {
-  header("location:../asset");
+  header("location:asset");
 } else {
-  header("location:../login.php");
+  header("location:login.php");
 }

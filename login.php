@@ -12,7 +12,7 @@ session_start(); ?>
 
 <body>
   <div class="flex flex-col justify-center min-h-screen items-center bg-gradient-to-r from-cyan-500 to-blue-500 px-28">
-    <form method="post" action="action/login_action.php">
+    <form method="post" action="login_action.php">
       <div class="flex flex-col bg-white p-5 rounded">
         <h1 class="text-center text-4xl font-bold">Login</h1>
         <p class="mt-3">Username</p>

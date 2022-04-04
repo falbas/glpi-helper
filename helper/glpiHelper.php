@@ -1,13 +1,8 @@
 <?php
 namespace glpiHelper {
-  require('../apihost.php');
   class glpiHelper {
     public $sessionToken = "";
-    private $host = "";
-
-    function __construct() {
-      $this->host = $apihost;
-    }
+    private $host = "http://localhost/glpi/apirest.php";
 
     function request(string $method, string $url, array $header = [], array $payload = []) {
       $ch = curl_init();

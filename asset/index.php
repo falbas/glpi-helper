@@ -17,6 +17,7 @@
       </select>
       <input type="submit" class="bg-gray-400 hover:bg-gray-500 rounded px-3" value="Filter">
       <a href="advancefilter.php" class="bg-gray-400 hover:bg-gray-500 rounded px-3 py-0.5">Advance Filter</a>
+      <a href="additem.php" class="bg-gray-400 hover:bg-gray-500 rounded px-3 py-0.5">Add Item</a>
     </form>
   </div>
   <?php

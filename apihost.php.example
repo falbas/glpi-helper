@@ -1,0 +1,3 @@
+<?php
+
+$apihost = 'http://localhost/glpi/apirest.php';

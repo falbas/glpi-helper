@@ -4,7 +4,7 @@ session_start();
 
 use glpiHelper\glpiHelper;
 
-$client = new glpiHelper();
+$client = new glpiHelper("http://localhost/glpi/apirest.php");
 $_SESSION["client"] = $client;
 $_SESSION["login"] = $client->initSession($_POST["username"], $_POST["password"]);
 

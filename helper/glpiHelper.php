@@ -2,7 +2,11 @@
 namespace glpiHelper {
   class glpiHelper {
     public $sessionToken = "";
-    private $host = "http://localhost/glpi/apirest.php";
+    private $host = "";
+
+    function __construct($apihost) {
+      $this->host = $apihost;
+    }
 
     function request(string $method, string $url, array $header = [], array $payload = []) {
       $ch = curl_init();

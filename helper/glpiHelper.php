@@ -2,6 +2,7 @@
 namespace glpiHelper {
   class glpiHelper {
     public $sessionToken = "";
+    public $appToken = "";
     private $host = "";
 
     function __construct($apihost) {
@@ -13,7 +14,7 @@ namespace glpiHelper {
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge(array("Content-Type: application/json"), $header));
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge(array("Content-Type: application/json", "App-Token: ".$this->appToken), $header));
       if ($method == "POST" || $method == "PUT") {
         $payload = json_encode($payload);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -25,11 +26,25 @@ namespace glpiHelper {
       return $output;
     }
 
-    function initSession(string $login, string $password) {
+    function initSessionBasic(string $login, string $password, string $appToken = "") {
+      $this->appToken = $appToken;
       $output = $this->request(
         "GET",
         $this->host."/initSession",
         array("Authorization: Basic ".base64_encode($login.":".$password))
+      );
+      if (isset($output["session_token"])) {
+        $this->sessionToken = $output["session_token"];
+      }
+      return $output;
+    }
+
+    function initSessionWithUserToken(string $userToken, string $appToken = "") {
+      $this->appToken = $appToken;
+      $output = $this->request(
+        "GET",
+        $this->host."/initSession",
+        array("Authorization: user_token ".$userToken)
       );
       if (isset($output["session_token"])) {
         $this->sessionToken = $output["session_token"];

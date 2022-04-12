@@ -15,12 +15,10 @@ session_start(); ?>
     <form method="post" action="login_action.php">
       <div class="flex flex-col bg-white p-5 rounded">
         <h1 class="text-center text-4xl font-bold">Login</h1>
-        <p class="mt-3">Username</p>
-        <input type="text" name="username" class="border border-gray-700 rounded focus:outline-blue-500 px-1" placeholder="Username">
-        <p class="mt-3">Password</p>
-        <input type="password" name="password" class="border border-gray-700 rounded focus:outline-blue-500 px-1" placeholder="Password">
+        <p class="mt-3">User Token</p>
+        <input type="text" name="usertoken" class="border border-gray-700 rounded focus:outline-blue-500 px-1" placeholder="User Token">
         <input type="submit" class="mt-3 rounded bg-gray-400 hover:bg-gray-500" value="Login">
-        <a href="loginwithtoken.php" class="text-right mt-3 text-sm text-blue-500 hover:text-blue-300">Login with token</a>
+        <a href="login.php" class="text-right mt-3 text-sm text-blue-500 hover:text-blue-300">Login with user password</a>
       </div>
     </form>
     <?php if (isset($_SESSION["login"][1])) { ?>

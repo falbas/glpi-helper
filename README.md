@@ -1,6 +1,6 @@
-# glpi-helper-web
+# glpi-helper
 
-Website for GLPI management using GLPI API
+Simple PHP class for helping using GLPI API
 
 # About GLPI
 
